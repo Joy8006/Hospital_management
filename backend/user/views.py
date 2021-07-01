@@ -3,6 +3,7 @@ from user.models import UserAccount
 from rest_framework.response import Response
 from .serializers import (
     LoginSerializer,
+    PasswordChangeSerializer,
     UserAccountSerializer,
 )
 from django.contrib.auth import authenticate, login as django_login
@@ -61,3 +62,15 @@ class UserRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAdminUserOrOwnAccount]
     serializer_class = UserAccountSerializer
     queryset = UserAccount.objects.order_by('-id').all()
+
+
+class PasswordChangeAPIView(LoggerAPIView):
+    """Modify rest auth default password change view"""
+
+    serializer_class = PasswordChangeSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data, context={'request': self.request})
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response({"message": "Password updated successfully."})
