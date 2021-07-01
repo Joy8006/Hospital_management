@@ -1,0 +1,7 @@
+documents/*
+!documents/.gitkeep
+
+images/profile_picture/*
+!images/profile_picture/.gitkeep
+images/reports/*
+!images/reports/.gitkeep
