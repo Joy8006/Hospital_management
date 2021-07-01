@@ -6,7 +6,7 @@ from .models import UserAccount
 class UserAccountAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
-        ('Personal info', {'fields': ('first_name', 'last_name', 'email', 'phone')}),
+        ('Personal info', {'fields': ('first_name', 'last_name', 'email', 'phone', 'date_of_birth')}),
         ('Permissions', {
             'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions', "hospital"),
         }),
