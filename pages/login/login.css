@@ -27,7 +27,7 @@ body {
     background: rgba(0,0,0,0.7);
     border-radius: 10px;
     color:#fff;
-    box-shadow: 0 15px 15px rgba(0,0,0,0.51.5);
+    box-shadow: 0 15px 15px rgba(0,0,0,0.0.5);
 }
 .form::before
 {
@@ -85,6 +85,7 @@ body {
     padding: 10px 10px;
     font-size: 1rem;
     pointer-events: none;
+    background-color: inherit;
     transition: .3s ease-out;
 }
 
@@ -96,23 +97,32 @@ body {
     font-size: 0.8rem;
 }
 
-.submit-btn
+.loginButtonSection {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.loginButtonSection .submit-btn
 {
     display:block;
-    margin-left: auto;
     border: none;
     outline: none;
-    background: chocolate;
+    background: rgb(42, 110, 15);
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 10px 20px;
     border-radius: 10px;
     cursor: pointer;
+    color: cornsilk;
+    font-size: 0.8rem;
 }
-.Forgot-pwd
+.loginButtonSection .Forgot-pwd
 {
     color: inherit;
+    align-self: center;
+
 }
 
 #Forgot-pwd
