@@ -85,7 +85,7 @@ body {
     padding: 10px 10px;
     font-size: 1rem;
     pointer-events: none;
-    background-color: inherit;
+    background-color: transparent;
     transition: .3s ease-out;
 }
 
@@ -103,7 +103,7 @@ body {
     justify-content: space-between;
 }
 
-.loginButtonSection .submit-btn
+.submit-btn
 {
     display:block;
     border: none;
@@ -155,4 +155,11 @@ body {
     font-weight: 900;
     text-decoration:none;
     color: inherit;
+}
+
+.mb10 {
+    margin-top: 10px;
+}
+.right {
+    float: right;  
 }
