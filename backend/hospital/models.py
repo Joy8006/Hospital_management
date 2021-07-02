@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.utils import timezone
 
 
 class TrackingModel(models.Model):
@@ -57,3 +58,14 @@ class Report(TrackingModel):
 
     def __str__(self):
         return self.name
+
+
+class PatientDataPermission(TrackingModel):
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    time_start = models.DateTimeField(default=timezone.now)
+    time_end = models.DateTimeField(default=timezone.now)
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self) -> str:
+        return self.patient.name or self.user.username

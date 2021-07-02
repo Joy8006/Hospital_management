@@ -1,4 +1,4 @@
-from hospital.models import Hospital, Patient, Report
+from hospital.models import Hospital, Patient, PatientDataPermission, Report
 from django.contrib import admin
 
 
@@ -26,6 +26,11 @@ class ReportAdmin(admin.ModelAdmin):
     list_display = ["name", "picture", "patient"]
 
 
+class PatientPermissionAdmin(admin.ModelAdmin):
+    list_display = ["patient", "user", "time_start", "time_end", "is_active"]
+
+
 admin.site.register(Hospital, HospitalAdmin)
 admin.site.register(Patient, PatientAdmin)
 admin.site.register(Report, ReportAdmin)
+admin.site.register(PatientDataPermission, PatientPermissionAdmin)
