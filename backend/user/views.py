@@ -8,7 +8,7 @@ from .serializers import (
 )
 from django.contrib.auth import authenticate, login as django_login
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import AllowAny, IsAdminUser
+from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from rest_framework.authtoken.models import Token
 from common.views import LoggerAPIView
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
@@ -59,7 +59,7 @@ class UserListCreateAPIView(ListCreateAPIView):
 
 
 class UserRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAdminUserOrOwnAccount]
+    permission_classes = [IsAuthenticated, IsAdminUserOrOwnAccount]
     serializer_class = UserAccountSerializer
     queryset = UserAccount.objects.order_by('-id').all()
 

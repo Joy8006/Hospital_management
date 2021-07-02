@@ -1,3 +1,5 @@
+from rest_framework.permissions import IsAuthenticated
+from hospital.permissions import HasPatientPermission
 from .models import Hospital, Patient, Report
 from .serializers import HospitalSerializer, PatientSerializer, ReportSerializer
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
@@ -19,6 +21,7 @@ class PatientListCreateAPIView(ListCreateAPIView):
 
 
 class PatientRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticated, HasPatientPermission]
     serializer_class = PatientSerializer
     queryset = Patient.objects.all()
 
