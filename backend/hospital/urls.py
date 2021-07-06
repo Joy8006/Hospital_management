@@ -1,19 +1,9 @@
-from .views import (
-    HospitalListCreateAPIView,
-    HospitalRetrieveUpdateDestroyAPIView,
-    PatientListCreateAPIView,
-    PatientRetrieveUpdateDestroyAPIView,
-    ReportListCreateAPIView,
-    ReportRetrieveUpdateDestroyAPIView
-)
-from django.urls import path
+from .views import HospitalViewSet, PatientViewSet, ReportViewSet
+from rest_framework.routers import DefaultRouter
 
+router = DefaultRouter()
+router.register("patients", PatientViewSet)
+router.register("reports", ReportViewSet)
+router.register("hospitals", HospitalViewSet)
 
-urlpatterns = [
-    path("hospitals/", HospitalListCreateAPIView.as_view()),
-    path("hospitals/<str:pk>/", HospitalRetrieveUpdateDestroyAPIView.as_view()),
-    path("patients/", PatientListCreateAPIView.as_view()),
-    path("patients/<str:pk>/", PatientRetrieveUpdateDestroyAPIView.as_view()),
-    path("reports/", ReportListCreateAPIView.as_view()),
-    path("reports/<str:pk>/", ReportRetrieveUpdateDestroyAPIView.as_view()),
-]
+urlpatterns = router.urls

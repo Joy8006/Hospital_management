@@ -2,35 +2,20 @@ from rest_framework.permissions import IsAuthenticated
 from hospital.permissions import HasPatientPermission
 from .models import Hospital, Patient, Report
 from .serializers import HospitalSerializer, PatientSerializer, ReportSerializer
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.viewsets import ModelViewSet
 
 
-class HospitalListCreateAPIView(ListCreateAPIView):
+class HospitalViewSet(ModelViewSet):
     serializer_class = HospitalSerializer
     queryset = Hospital.objects.order_by("-id").all()
 
 
-class HospitalRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
-    serializer_class = HospitalSerializer
-    queryset = Hospital.objects.all()
-
-
-class PatientListCreateAPIView(ListCreateAPIView):
+class PatientViewSet(ModelViewSet):
+    permission_classes = [IsAuthenticated, HasPatientPermission]
     serializer_class = PatientSerializer
     queryset = Patient.objects.order_by('-id').all()
 
 
-class PatientRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthenticated, HasPatientPermission]
-    serializer_class = PatientSerializer
-    queryset = Patient.objects.all()
-
-
-class ReportListCreateAPIView(ListCreateAPIView):
+class ReportViewSet(ModelViewSet):
     serializer_class = ReportSerializer
     queryset = Report.objects.order_by('-id').all()
-
-
-class ReportRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
-    serializer_class = ReportSerializer
-    queryset = Report.objects.all()

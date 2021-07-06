@@ -14,7 +14,6 @@ class HasPatientPermission(BasePermission):
             return False
 
         permissions = PatientDataPermission.objects.filter(user=user, patient=obj, is_active=True)
-        print(permissions)
         if permissions.exists():
             current_time = timezone.now()
             permission = permissions.first()
