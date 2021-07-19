@@ -1,0 +1,230 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body
+{
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+
+
+.logo img
+{   
+    position: absolute;
+    top: 0.5%;
+    left: 95%;
+    width: 50px;
+    background: rgba(0,0,0,1);
+    border-radius: 50%;
+}
+
+
+.logo
+{
+    
+    text-align: center;
+    background-color: rgb(53, 52, 52);
+}
+
+.logo ul
+{   
+    font-weight: 600;   
+    display: inline-flex;
+    list-style: none;
+    color: white;
+    left: 2%;
+}
+
+.logo ul li
+{
+    
+    width: 120px;
+    margin: 20px;
+    
+
+}
+.logo ul li a
+{
+    text-decoration: none;
+    color: white;
+    
+}
+
+.zoom,.logo ul li :hover
+{
+    padding: 15px;
+    background-color: rgb(10, 8, 10);
+    transition: transform .2s; /* Animation */
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 8px;
+    
+}
+.submenu1
+{
+    display: none;
+
+}
+
+.logo ul li:hover .submenu1
+{
+    display: none;
+    position: absolute;
+    background: rgb(53, 51, 53);
+    margin-top: 20px;
+    margin-left: -15px;
+
+}
+.logo ul li:hover .submenu1 ul
+{
+    display: block;
+    margin:10px;
+    border-radius: 5px;
+}
+
+.logo ul li:hover .submenu1 ul li
+{
+    display: block;
+    width: 120px;
+    padding: 10px;
+    border-bottom: 1px double rgb(41, 24, 24);
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+}
+
+.logo ul li:hover .submenu1 ul li:last-child
+{
+    border-bottom: none;
+}
+
+.logo ul li:hover .submenu1 ul li:hover
+{
+    color: tomato;
+}
+
+.add_search ul
+{   
+    font-weight: 600;   
+    display: inline-flex;
+    list-style: none;
+    color: white;
+}
+
+.add_search ul li
+{
+    width: 1250px;
+    margin: 10px;
+    
+
+}
+
+.add_search
+{
+    background-color: rgb(76, 75, 77);
+    width: 100%;
+    height: 40px;
+}
+
+.data_table table 
+{
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    border-color: gray;
+    border-spacing: 0.5rem;
+    width: 100%;
+    height: 450px;
+}
+
+.data_table table thead
+{
+    background-color: rgb(190, 189, 189);
+    color: rgb(5, 3, 0);
+    text-align: center;
+}
+
+.data_table table td, th {
+    border: 1px solid #999;
+    padding: 0.5rem;
+    text-align:left;
+
+  }
+
+  .data_table table td:last-child
+  {
+    padding: 0.2rem;
+    text-align:center;
+    word-spacing: 15px;
+  }
+
+  .data_table table th:last-child
+  {
+    padding: 0.2rem;
+    text-align:center;
+    word-spacing: 15px;
+  }
+
+  .data_table table td:last-child button
+  {
+      height: 30px;
+      width: 45px;
+  }
+  .data_table tbody tr:nth-child(even)
+  {
+      background-color: #edf0fc;
+  }
+
+  .footer
+  {
+      margin-top: 20px;
+      text-shadow: forestgreen;
+  }
+  .footer a
+  {
+      text-decoration: none;
+      display: inline-block;
+      padding: 8px 16px;
+  }
+  .footer a:hover
+  {
+      background-color: rgb(12, 2, 2);
+      color: cornsilk;
+  }
+  .previous
+  {
+      background-color: rgb(247, 236, 250);
+      border-radius: 10px;
+  }
+  .home_button
+  {
+    background-color: rgb(23, 102, 3);
+    border-radius: 10px;
+    color: lavenderblush;
+  }
+
+  .next
+  {
+    background-color: rgb(9, 29, 117);
+    border-radius: 10px;
+    color: ivory;
+  }
+
+  .table_title
+  {
+      width: 100%;
+      height: 30px;
+  
+      display: inline-block;
+  }
+
+  .table_title p
+  {
+      text-align: center;
+      margin-top: 5px;
+      font-weight: 600;
+  }
